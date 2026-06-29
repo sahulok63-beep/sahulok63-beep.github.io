@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lok — Notes on Mind & Meaning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C1B19;
+    --paper:#F2EEE3;
+    --clay:#8B6F47;
+    --moss:#4A5043;
+    --paper-dim:#E8E2D2;
+    --rule: rgba(28,27,25,0.14);
+    --max: 700px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--clay); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--clay); outline-offset:3px;}
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ===== HEADER ===== */
+  header.site{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--rule);
+  }
+  .wordmark{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:1.9rem;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .wordmark .dot{ color:var(--clay); }
+  .tagline{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--moss);
+    text-transform:lowercase;
+    letter-spacing:0.02em;
+    margin-top:8px;
+  }
+  nav.site{
+    margin-top:28px;
+    display:flex;
+    gap:24px;
+    font-size:0.92rem;
+  }
+  nav.site a{
+    color:var(--ink);
+    border-bottom:1px solid transparent;
+  }
+  nav.site a:hover{
+    color:var(--clay);
+    border-bottom-color:var(--clay);
+    text-decoration:none;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    padding:56px 0 48px;
+  }
+  .hero p.lede{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:1.35rem;
+    line-height:1.5;
+    color:var(--ink);
+    max-width:560px;
+    margin:0 0 20px;
+  }
+  .hero p.sub{
+    color:var(--moss);
+    font-size:0.98rem;
+    max-width:520px;
+  }
+
+  /* ===== SECTION LABEL ===== */
+  .section-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.74rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--clay);
+    margin-bottom:18px;
+    display:block;
+  }
+
+  section{
+    padding:48px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  /* ===== ABOUT ===== */
+  .about p{
+    font-size:1.02rem;
+    max-width:600px;
+  }
+  .about p + p{margin-top:14px;}
+
+  /* ===== BLOG / ESSAYS ===== */
+  .post{
+    display:grid;
+    grid-template-columns:1fr 160px;
+    gap:24px;
+    padding:26px 0;
+    border-top:1px solid var(--rule);
+  }
+  .post:first-of-type{border-top:none;}
+
+  .post-main h3{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:1.22rem;
+    margin:0 0 8px;
+    line-height:1.35;
+  }
+  .post-main h3 a{ color:var(--ink); }
+  .post-main h3 a:hover{ color:var(--clay); text-decoration:none; }
+
+  .post-meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--moss);
+    margin-bottom:10px;
+    letter-spacing:0.02em;
+  }
+  .post-excerpt{
+    font-size:0.94rem;
+    color:#3a3935;
+  }
+
+  .marginalia{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:0.86rem;
+    color:var(--moss);
+    border-left:1px solid var(--rule);
+    padding-left:16px;
+    line-height:1.5;
+    align-self:start;
+    padding-top:2px;
+  }
+
+  @media (max-width:560px){
+    .post{grid-template-columns:1fr;}
+    .marginalia{
+      border-left:none;
+      border-top:1px dashed var(--rule);
+      padding-left:0;
+      padding-top:10px;
+      margin-top:4px;
+    }
+  }
+
+  /* ===== CONNECT ===== */
+  .connect-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .connect-list li{
+    font-size:0.98rem;
+  }
+  .connect-list span.k{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--moss);
+    margin-right:10px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    padding:32px 0 60px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.74rem;
+    color:var(--moss);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .post, .hero, header.site{
+      animation:fadeIn 0.5s ease both;
+    }
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(6px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <p class="wordmark">Lok<span class="dot">.</span></p>
+    <p class="tagline">notes on mind, meaning &amp; method</p>
+    <nav class="site">
+      <a href="#about">About</a>
+      <a href="#writings">Writings</a>
+      <a href="#connect">Connect</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="lede">Most ideas don't survive contact with a direct question. I write to find out which ones do.</p>
+    <p class="sub">This is a working notebook on philosophy and psychology — Advaita next to Stoicism, Camus next to the Dhammapada, tested for consistency rather than taken on faith. No gurus, no final answers, just thinking out loud.</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <span class="section-label">About</span>
+    <p>I'm Lok. I read philosophy — Indian and Western — not as belief systems to adopt but as tools to test against each other and against ordinary life. Most of what I write here starts as a question I couldn't drop.</p>
+    <p>I'm not interested in performing certainty. If a tradition's claim doesn't hold up when you push on it, I say so — whether that tradition is Vedanta, Stoicism, or whatever the loudest voice online is selling this week.</p>
+  </div>
+</section>
+
+<section class="writings" id="writings">
+  <div class="wrap">
+    <span class="section-label">Writings</span>
+
+    <article class="post">
+      <div class="post-main">
+        <h3><a href="#">Anicca isn't pessimism — it's an instruction manual</a></h3>
+        <p class="post-meta">PHILOSOPHY · 6 MIN</p>
+        <p class="post-excerpt">The Buddhist idea of impermanence gets read as bleak. Read literally, it's closer to a maintenance schedule than a tragedy.</p>
+      </div>
+      <div class="marginalia">"Tanha grips tightest where we've stopped noticing the grip."</div>
+    </article>
+
+    <article class="post">
+      <div class="post-main">
+        <h3><a href="#">Why algorithmic feeds borrow the logic of addiction</a></h3>
+        <p class="post-meta">PSYCHOLOGY · 8 MIN</p>
+        <p class="post-excerpt">A look at variable reward schedules, attention capture, and why "just watching one more video" is the system working as designed.</p>
+      </div>
+      <div class="marginalia">Passive consumption disguised as learning is still passive consumption.</div>
+    </article>
+
+    <article class="post">
+      <div class="post-main">
+        <h3><a href="#">Camus without the despair marketing</a></h3>
+        <p class="post-meta">PHILOSOPHY · 5 MIN</p>
+        <p class="post-excerpt">The absurd isn't a mood. It's a starting condition — and Camus's actual answer to it is closer to discipline than nihilism.</p>
+      </div>
+      <div class="marginalia">Revolt, not resignation.</div>
+    </article>
+
+    <article class="post">
+      <div class="post-main">
+        <h3><a href="#">Ideological capture looks like loyalty from the inside</a></h3>
+        <p class="post-meta">PSYCHOLOGY · 7 MIN</p>
+        <p class="post-excerpt">Notes on how identity gets fused to belief, and why people experience the loss of a narrative as a personal threat.</p>
+      </div>
+      <div class="marginalia">The tell is which questions feel unaskable.</div>
+    </article>
+
+  </div>
+</section>
+
+<section class="connect" id="connect">
+  <div class="wrap">
+    <span class="section-label">Connect</span>
+    <ul class="connect-list">
+      <li><span class="k">EMAIL</span><a href="mailto:hello@example.com">hello@example.com</a></li>
+      <li><span class="k">YOUTUBE</span><a href="#">@lok</a></li>
+      <li><span class="k">RSS</span><a href="#">subscribe</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+    <span>Lok, notes on mind &amp; meaning</span>
+    <span>updated 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
